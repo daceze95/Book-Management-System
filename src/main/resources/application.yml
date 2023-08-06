@@ -1,2 +1,12 @@
 server:
-  port: #specify your port number
+  port:  #specify your port number
+spring:
+  dataSource:
+    url: jdbc:postgresql://localhost:{db portNumber}/{databaseName}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

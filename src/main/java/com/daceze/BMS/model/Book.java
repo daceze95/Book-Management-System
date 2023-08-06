@@ -1,7 +1,16 @@
 package com.daceze.BMS.model;
 
+import com.daceze.BMS.autoIDGen.IDGEN;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "book")
 public class Book {
+
+    @Id
     private String id;
 
     public String getId() {
@@ -26,13 +35,15 @@ public class Book {
     private String description;
     private Long review;
 
-    public Book(String id, String title, String author, String publishDate, String description, Long review) {
-        this.id = id;
+    public Book( String title, String author, String publishDate, String description, Long review) {
         this.title = title;
         this.author = author;
         this.publishDate = publishDate;
         this.description = description;
         this.review = review;
+    }
+
+    public Book() {
     }
 
     public String getTitle() {
@@ -67,3 +78,4 @@ public class Book {
         this.description = description;
     }
 }
+

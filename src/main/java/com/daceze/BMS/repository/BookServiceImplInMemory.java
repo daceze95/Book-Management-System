@@ -1,5 +1,6 @@
 package com.daceze.BMS.repository;
 
+import com.daceze.BMS.autoIDGen.IDGEN;
 import com.daceze.BMS.model.Book;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +17,9 @@ public class BookServiceImplInMemory{
     }
 
     public String addBook(Book b) {
+        if(b.getId() == null || b.getId().isEmpty()){
+            b.setId(new IDGEN().idAuth());
+        }
             bookRepository.add(b);
         return "Book added successfully!";
     }

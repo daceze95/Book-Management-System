@@ -2,6 +2,7 @@ package com.daceze.BMS.controller;
 
 import com.daceze.BMS.model.Book;
 import com.daceze.BMS.service.BookService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -13,7 +14,7 @@ public class BookController {
 
     private BookService bookService;
 
-    public BookController(BookService bookService) {
+    public BookController(@Qualifier("DB") BookService bookService) {
         this.bookService = bookService;
     }
 
